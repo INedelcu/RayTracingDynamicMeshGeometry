@@ -1,7 +1,7 @@
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Experimental.Rendering;
+using UnityEngine.Profiling;
 
 [ExecuteInEditMode]
 public class MeshInstanceDynamicGeometry : MonoBehaviour
@@ -281,6 +281,7 @@ public class MeshInstanceDynamicGeometry : MonoBehaviour
         cmdBuffer.name = "Dynamic Geometry Test";
 
         // Animate CPU mesh
+        Profiler.BeginSample("CPU Mesh Animation");
         {
             using (var varray = AnimateVertexArray(meshResolution))
             {
@@ -288,6 +289,7 @@ public class MeshInstanceDynamicGeometry : MonoBehaviour
                 cpuMesh.SetVertexBufferData(varray, 0, 0, varray.Length);
             }
         }
+        Profiler.EndSample();
 
         // Animate GPU mesh
         {
