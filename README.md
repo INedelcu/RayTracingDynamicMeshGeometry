@@ -1,6 +1,8 @@
 # RayTracingDynamicMeshGeometry
 Unity sample project using dynamic Mesh geometries in a RayTracingAccelerationStructure (RTAS).
 
+<img src="Images/GameView.png" width="1280">
+
 ## Description
 The project uses [RayTracingAcceleratioStructure.AddInstance](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Rendering.RayTracingAccelerationStructure.AddInstance.html) function to add ray tracing instances that use dynamic geometries to the RTAS. The function signature used is:
 
