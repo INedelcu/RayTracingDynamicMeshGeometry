@@ -1,0 +1,26 @@
+#pragma kernel CSMain
+
+RWByteAddressBuffer vertexBuffer;
+
+float realtimeSinceStartup;
+uint vertexCount;
+uint vertexSizeInBytes;
+
+[numthreads(32, 1, 1)]
+void CSMain (uint3 tid : SV_DispatchThreadID)
+{
+    uint vertexIndex = tid.x;
+
+    if (vertexIndex >= vertexCount)
+        return;
+
+    uint address = vertexIndex * vertexSizeInBytes;
+
+    float3 position = asfloat(vertexBuffer.Load3(address));
+
+    float dist = length(position);
+
+    float wave = 0.05f * cos(realtimeSinceStartup * 9 - 15 * dist);
+
+    vertexBuffer.Store3(address, asuint(float3(position.x, wave, position.z)));
+}
