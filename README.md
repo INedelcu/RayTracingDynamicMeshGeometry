@@ -25,4 +25,4 @@ After opening the project, switch to Game view and click Play.
 
 ## Resources
 * [DirectX Raytracing (DXR) specs](https://microsoft.github.io/DirectX-Specs/d3d/Raytracing.html)
-* [Unity forums](https://forum.unity.com)
+* [Unity Forum](https://forum.unity.com)
