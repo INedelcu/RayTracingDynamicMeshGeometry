@@ -6,9 +6,7 @@ Unity sample project using dynamic Mesh geometries in a RayTracingAccelerationSt
 ## Description
 The project uses [RayTracingAccelerationStructure.AddInstance](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Rendering.RayTracingAccelerationStructure.AddInstance.html) function to add ray tracing instances that use dynamic geometries to the RTAS. The function signature used is:
 
-```
-int AddInstance(ref Rendering.RayTracingMeshInstanceConfig config, Matrix4x4 matrix, Nullable<Matrix4x4> prevMatrix = null, uint id);
-```
+`int AddInstance(ref Rendering.RayTracingMeshInstanceConfig config, Matrix4x4 matrix, Nullable<Matrix4x4> prevMatrix, uint id);`
 
 
 There are 2 dynamic Meshes in the Scene - the left Mesh is animated on the CPU in C# while the right one on the GPU in a [compute shader](https://github.com/INedelcu/RayTracingDynamicMeshGeometry/blob/main/Assets/Shaders/WaveMeshAnimation.compute). Check [MeshInstanceDynamicGeometry.cs](https://github.com/INedelcu/RayTracingDynamicMeshGeometry/blob/main/Assets/Scripts/MeshInstanceDynamicGeometry.cs). After animation, [CommandBuffer.BuildRayTracingAccelerationStructure](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Rendering.CommandBuffer.BuildRayTracingAccelerationStructure.html) is called where the acceleration structures (BLAS) associated with the 2 geometries are generated on the GPU.
