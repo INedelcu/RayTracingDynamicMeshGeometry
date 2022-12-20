@@ -2,6 +2,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Profiling;
+using UnityEngine.Experimental.Rendering;
 
 [ExecuteInEditMode]
 public class MeshInstanceDynamicGeometry : MonoBehaviour
