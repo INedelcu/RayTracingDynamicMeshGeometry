@@ -56,6 +56,11 @@ public class MeshInstanceDynamicGeometry : MonoBehaviour
             DestroyImmediate(gpuMesh);
             gpuMesh = null;
         }
+
+        if (indexBufferData.IsCreated)
+        {
+            indexBufferData.Dispose();
+        }
     }
 
     private NativeArray<uint> CreateIndexArray(uint resolution)
